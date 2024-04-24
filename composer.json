@@ -1,0 +1,32 @@
+{
+    "name": "adrienbrault/instructrice-symfony",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrien Brault",
+            "email": "adrien.brault@gmail.com"
+        }
+    ],
+    "require": {
+        "adrienbrault/instructrice": "*",
+        "symfony/framework-bundle": "*"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "*",
+        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan-symfony": "^1.4",
+        "rector/rector": "^1.0",
+        "symplify/easy-coding-standard": "^12.1"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Adrienbrault\\InstructriceBundle\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
+    }
+}
