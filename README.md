@@ -73,6 +73,9 @@ public function controller(Instructrice $instructrice, HubInterface $hub)
         'Find all the products!',
         llm: OpenAi::GPT_4T,
         onChunk: function (array $products, LLMChunk $chunk) use ($hub) {
+            // FYI: $chunk->propertyPath
+            // You could leverage that to only update each property once in the UI, instead of streaming every single character
+
             $hub->publish(new Update(
                 'product_123',
                 $this->renderView('product.stream.html.twig', [
