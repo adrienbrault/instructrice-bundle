@@ -60,10 +60,8 @@ class InstructriceExtension extends ConfigurableExtension
      */
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
-        $container->register(InstructriceFactory::class);
-
         $definition = $container->register(Instructrice::class);
-        $definition->setFactory(new Reference(InstructriceFactory::class));
+        $definition->setFactory(InstructriceFactory::class . '::create');
 
         $definition->setArguments([
             '$apiKeys' => [
