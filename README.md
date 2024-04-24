@@ -7,6 +7,7 @@ composer require adrienbrault/instructrice-bundle@dev adrienbrault/instructrice@
 
 Configure api keys:
 ```yaml
+# config/packages/instructrice.yaml
 instructrice:
     anthropic:
         api_key: '%env(ANTHROPIC_API_KEY)'
