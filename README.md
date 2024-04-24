@@ -50,9 +50,7 @@ public function controller(Instructrice $instructrice, HubInterface $hub)
 }
 ```
 
-You can use Mercure to update your frontend with streaming, leveraging the partial JSON parsing and deserialization.
-
-Use the `onChunk` callback:
+You can use Mercure to update your frontend while the LLM is completing JSON, using the `onChunk` callback:
 ```php
 use AdrienBrault\Instructrice\Instructrice;
 use AdrienBrault\Instructrice\LLM\LLMChunk;
