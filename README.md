@@ -50,7 +50,9 @@ public function controller(Instructrice $instructrice, HubInterface $hub)
 }
 ```
 
-If you are using mercure to stream updates, you will want to use the `onChunk` argument:
+You can use Mercure to update your frontend with streaming, leveraging the partial JSON parsing and deserialization.
+
+Use the `onChunk` callback:
 ```php
 use AdrienBrault\Instructrice\Instructrice;
 use AdrienBrault\Instructrice\LLM\LLMChunk;
