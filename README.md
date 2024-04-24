@@ -10,25 +10,25 @@ Configure api keys:
 # config/packages/instructrice.yaml
 instructrice:
     anthropic:
-        api_key: '%env(ANTHROPIC_API_KEY)'
+        api_key: '%env(ANTHROPIC_API_KEY)%'
     anyscale:
-        api_key: '%env(ANYSCALE_API_KEY)'
+        api_key: '%env(ANYSCALE_API_KEY)%'
     deepinfra:
-        api_key: '%env(DEEPINFRA_API_KEY)'
+        api_key: '%env(DEEPINFRA_API_KEY)%'
     fireworks:
-        api_key: '%env(FIREWORKS_API_KEY)'
+        api_key: '%env(FIREWORKS_API_KEY)%'
     groq:
-        api_key: '%env(GROQ_API_KEY)'
+        api_key: '%env(GROQ_API_KEY)%'
     mistral:
-        api_key: '%env(MISTRAL_API_KEY)'
+        api_key: '%env(MISTRAL_API_KEY)%'
     ollama:
-        api_key: '%env(OLLAMA_API_KEY)'
+        api_key: '%env(OLLAMA_API_KEY)%'
     openai:
-        api_key: '%env(OPENAI_API_KEY)'
+        api_key: '%env(OPENAI_API_KEY)%'
     perplexity:
-        api_key: '%env(PERPLEXITY_API_KEY)'
+        api_key: '%env(PERPLEXITY_API_KEY)%'
     together:
-        api_key: '%env(TOGETHER_API_KEY)'
+        api_key: '%env(TOGETHER_API_KEY)%'
 ```
 
 Use [instructrice][instructrice]:
