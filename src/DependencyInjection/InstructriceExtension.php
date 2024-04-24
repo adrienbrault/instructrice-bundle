@@ -26,24 +26,40 @@ class InstructriceExtension extends ConfigurableExtension
 {
     /**
      * @param array{
-     *     api_keys?: array{
-     *         anthropic?: string,
-     *         anyscale?: string,
-     *         deepinfra?: string,
-     *         fireworks?: string,
-     *         groq?: string,
-     *         mistral?: string,
-     *         ollama?: string,
-     *         openai?: string,
-     *         perplexity?: string,
-     *         together?: string,
-     *     }
+     *     anthropic?: array{
+     *         api_key?: string
+     *     },
+     *     anyscale?: array{
+     *         api_key?: string
+     *     },
+     *     deepinfra?: array{
+     *         api_key?: string
+     *     },
+     *     fireworks?: array{
+     *         api_key?: string
+     *     },
+     *     groq?: array{
+     *         api_key?: string
+     *     },
+     *     mistral?: array{
+     *         api_key?: string
+     *     },
+     *     ollama?: array{
+     *         api_key?: string
+     *     },
+     *     openai?: array{
+     *         api_key?: string
+     *     },
+     *     perplexity?: array{
+     *         api_key?: string
+     *     },
+     *     together?: array{
+     *         api_key?: string
+     *     },
      * } $mergedConfig
      */
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
-        $api_keys = $mergedConfig['api_keys'] ?? [];
-
         $container->register(InstructriceFactory::class);
 
         $definition = $container->register(Instructrice::class);
@@ -51,16 +67,16 @@ class InstructriceExtension extends ConfigurableExtension
 
         $definition->setArguments([
             '$apiKeys' => [
-                Anthropic::class => $api_keys['anthropic'] ?? null,
-                Anyscale::class => $api_keys['anyscale'] ?? null,
-                DeepInfra::class => $api_keys['deepinfra'] ?? null,
-                Fireworks::class => $api_keys['fireworks'] ?? null,
-                Groq::class => $api_keys['groq'] ?? null,
-                Mistral::class => $api_keys['mistral'] ?? null,
-                Ollama::class => $api_keys['ollama'] ?? null,
-                OpenAi::class => $api_keys['openai'] ?? null,
-                Perplexity::class => $api_keys['perplexity'] ?? null,
-                Together::class => $api_keys['together'] ?? null,
+                Anthropic::class => $mergedConfig['anthropic']['api_key'] ?? null,
+                Anyscale::class => $mergedConfig['anyscale']['api_key'] ?? null,
+                DeepInfra::class => $mergedConfig['deepinfra']['api_key'] ?? null,
+                Fireworks::class => $mergedConfig['fireworks']['api_key'] ?? null,
+                Groq::class => $mergedConfig['groq']['api_key'] ?? null,
+                Mistral::class => $mergedConfig['mistral']['api_key'] ?? null,
+                Ollama::class => $mergedConfig['ollama']['api_key'] ?? null,
+                OpenAi::class => $mergedConfig['openai']['api_key'] ?? null,
+                Perplexity::class => $mergedConfig['perplexity']['api_key'] ?? null,
+                Together::class => $mergedConfig['together']['api_key'] ?? null,
             ],
             '$llmFactory' => new Reference(LLMFactory::class),
             '$serializer' => new Reference('serializer'),
