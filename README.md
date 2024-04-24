@@ -1,8 +1,8 @@
-Symfony bundle for the [adrienbrault/instructrice](https://github.com/adrienbrault/instructrice) library.
+Symfony bundle for the [adrienbrault/instructrice][instructrice] library.
 
 Install the bundle:
 ```
-composer require adrienbrault/instructrice-bundle@dev adrienbrault/instructrice@dev
+composer require adrienbrault/instructrice-bundle:dev-main adrienbrault/instructrice:dev-main
 ```
 
 Configure api keys:
@@ -31,7 +31,7 @@ instructrice:
         api_key: '%env(TOGETHER_API_KEY)'
 ```
 
-Use instructrice:
+Use [instructrice][instructrice]:
 ```php
 use AdrienBrault\Instructrice\Instructrice;
 use AdrienBrault\Instructrice\LLM\Provider\OpenAi;
@@ -49,3 +49,5 @@ public function controller(Instructrice $instructrice)
     );
 }
 ```
+
+[instructrice]: https://github.com/adrienbrault/instructrice
