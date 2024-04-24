@@ -31,7 +31,7 @@ instructrice:
 ```
 
 Use instructrice:
-```
+```php
 use AdrienBrault\Instructrice\Instructrice;
 use AdrienBrault\Instructrice\LLM\Provider\OpenAi;
 
