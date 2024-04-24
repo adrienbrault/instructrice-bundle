@@ -1,5 +1,6 @@
 {
     "name": "adrienbrault/instructrice-bundle",
+    "description": "Typed LLM Outputs with Symfony",
     "license": "MIT",
     "authors": [
         {
