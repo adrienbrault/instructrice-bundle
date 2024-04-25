@@ -75,9 +75,7 @@ class InstructriceExtension extends ConfigurableExtension
 
         $definition = $container->register(Instructrice::class);
         $definition->setFactory(InstructriceFactory::class . '::create');
-
         $definition->setArguments([
-            '$apiKeys' => $apiKeys,
             '$llmFactory' => new Reference(LLMFactory::class),
             '$serializer' => new Reference('serializer'),
             '$propertyInfo' => new Reference('property_info'),
