@@ -2,7 +2,7 @@ Symfony bundle for the [adrienbrault/instructrice][instructrice] library.
 
 Install the bundle:
 ```
-composer require adrienbrault/instructrice-bundle:dev-main adrienbrault/instructrice:dev-main
+composer require adrienbrault/instructrice-bundle:@dev adrienbrault/instructrice:@dev
 ```
 
 Configure api keys:
