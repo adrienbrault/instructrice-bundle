@@ -19,6 +19,8 @@ instructrice:
         api_key: '%env(default::FIREWORKS_API_KEY)%'
     groq:
         api_key: '%env(default::GROQ_API_KEY)%'
+    google:
+        api_key: '%env(default::GEMINI_API_KEY)%'
     mistral:
         api_key: '%env(default::MISTRAL_API_KEY)%'
     ollama:

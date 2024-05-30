@@ -12,6 +12,7 @@ use AdrienBrault\Instructrice\LLM\Provider\Anthropic;
 use AdrienBrault\Instructrice\LLM\Provider\Anyscale;
 use AdrienBrault\Instructrice\LLM\Provider\DeepInfra;
 use AdrienBrault\Instructrice\LLM\Provider\Fireworks;
+use AdrienBrault\Instructrice\LLM\Provider\Google;
 use AdrienBrault\Instructrice\LLM\Provider\Groq;
 use AdrienBrault\Instructrice\LLM\Provider\Mistral;
 use AdrienBrault\Instructrice\LLM\Provider\Ollama;
@@ -41,6 +42,9 @@ class InstructriceExtension extends ConfigurableExtension
      *     groq?: array{
      *         api_key?: string
      *     },
+     *     google?: array{
+     *         api_key?: string
+     *     },
      *     mistral?: array{
      *         api_key?: string
      *     },
@@ -66,6 +70,7 @@ class InstructriceExtension extends ConfigurableExtension
             DeepInfra::class => $mergedConfig['deepinfra']['api_key'] ?? null,
             Fireworks::class => $mergedConfig['fireworks']['api_key'] ?? null,
             Groq::class => $mergedConfig['groq']['api_key'] ?? null,
+            Google::class => $mergedConfig['google']['api_key'] ?? null,
             Mistral::class => $mergedConfig['mistral']['api_key'] ?? null,
             Ollama::class => $mergedConfig['ollama']['api_key'] ?? null,
             OpenAi::class => $mergedConfig['openai']['api_key'] ?? null,
