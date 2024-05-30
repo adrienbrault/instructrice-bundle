@@ -10,27 +10,27 @@ Configure api keys:
 # config/packages/instructrice.yaml
 instructrice:
     anthropic:
-        api_key: '%env(default::ANTHROPIC_API_KEY)%'
+        api_key: '%env(string:default::ANTHROPIC_API_KEY)%'
     anyscale:
-        api_key: '%env(default::ANYSCALE_API_KEY)%'
+        api_key: '%env(string:default::ANYSCALE_API_KEY)%'
     deepinfra:
-        api_key: '%env(default::DEEPINFRA_API_KEY)%'
+        api_key: '%env(string:default::DEEPINFRA_API_KEY)%'
     fireworks:
-        api_key: '%env(default::FIREWORKS_API_KEY)%'
+        api_key: '%env(string:default::FIREWORKS_API_KEY)%'
     groq:
-        api_key: '%env(default::GROQ_API_KEY)%'
+        api_key: '%env(string:default::GROQ_API_KEY)%'
     google:
-        api_key: '%env(default::GEMINI_API_KEY)%'
+        api_key: '%env(string:default::GEMINI_API_KEY)%'
     mistral:
-        api_key: '%env(default::MISTRAL_API_KEY)%'
+        api_key: '%env(string:default::MISTRAL_API_KEY)%'
     ollama:
-        api_key: '%env(default::OLLAMA_API_KEY)%'
+        api_key: '%env(string:default::OLLAMA_API_KEY)%'
     openai:
-        api_key: '%env(default::OPENAI_API_KEY)%'
+        api_key: '%env(string:default::OPENAI_API_KEY)%'
     perplexity:
-        api_key: '%env(default::PERPLEXITY_API_KEY)%'
+        api_key: '%env(string:default::PERPLEXITY_API_KEY)%'
     together:
-        api_key: '%env(default::TOGETHER_API_KEY)%'
+        api_key: '%env(string:default::TOGETHER_API_KEY)%'
 ```
 
 Use [instructrice][instructrice]:
