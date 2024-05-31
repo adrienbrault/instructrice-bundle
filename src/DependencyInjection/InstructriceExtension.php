@@ -19,6 +19,8 @@ use AdrienBrault\Instructrice\LLM\Provider\Ollama;
 use AdrienBrault\Instructrice\LLM\Provider\OpenAi;
 use AdrienBrault\Instructrice\LLM\Provider\Perplexity;
 use AdrienBrault\Instructrice\LLM\Provider\Together;
+use BackedEnum;
+use ReflectionEnum;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
@@ -27,9 +29,7 @@ class InstructriceExtension extends ConfigurableExtension
 {
     /**
      * @param array{
-     *     default?: array{
-     *         dsn?: string
-     *     },
+     *     default?: string,
      *     anthropic?: array{
      *         api_key?: string
      *     },
@@ -81,7 +81,20 @@ class InstructriceExtension extends ConfigurableExtension
             Together::class => $mergedConfig['together']['api_key'] ?? null,
         ];
 
-        $defaultDsn = $mergedConfig['default']['dsn'] ?? null;
+        $default = $mergedConfig['default'] ?? null;
+
+        if (str_contains((string) $default, '::')) {
+            [$class, $value] = explode('::', (string) $default);
+
+            $class = 'AdrienBrault\\Instructrice\\LLM\\Provider\\' . $class;
+
+            if (class_exists($class)
+                && is_subclass_of($class, BackedEnum::class)
+                && (new ReflectionEnum($class))->hasCase($value)
+            ) {
+                $default = \constant(implode('::', [$class, $value]));
+            }
+        }
 
         $definition = $container->register(Instructrice::class);
         $definition->setFactory(InstructriceFactory::class . '::create');
@@ -89,7 +102,7 @@ class InstructriceExtension extends ConfigurableExtension
             '$llmFactory' => new Reference(LLMFactory::class),
             '$serializer' => new Reference('serializer'),
             '$propertyInfo' => new Reference('property_info'),
-            '$defaultLlm' => $defaultDsn,
+            '$defaultLlm' => $default,
         ]);
 
         $definition = $container->register(SymfonyStreamingClient::class);

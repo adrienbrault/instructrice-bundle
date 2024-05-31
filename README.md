@@ -9,8 +9,8 @@ Configure api keys:
 ```yaml
 # config/packages/instructrice.yaml
 instructrice:
-    default:
-        dsn: '%env(string:INSTRUCTRICE_DSN)%'
+    default: '%env(string:INSTRUCTRICE_DSN)%'
+    #default: Ollama::HERMES2THETA_LLAMA3_8B
     anthropic:
         api_key: '%env(string:default::ANTHROPIC_API_KEY)%'
     anyscale:
