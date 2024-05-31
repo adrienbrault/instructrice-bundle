@@ -9,6 +9,8 @@ Configure api keys:
 ```yaml
 # config/packages/instructrice.yaml
 instructrice:
+    default:
+        dsn: '%env(string:INSTRUCTRICE_DSN)%'
     anthropic:
         api_key: '%env(string:default::ANTHROPIC_API_KEY)%'
     anyscale:

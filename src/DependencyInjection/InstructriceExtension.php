@@ -27,6 +27,9 @@ class InstructriceExtension extends ConfigurableExtension
 {
     /**
      * @param array{
+     *     default?: array{
+     *         dsn?: string
+     *     },
      *     anthropic?: array{
      *         api_key?: string
      *     },
@@ -59,7 +62,7 @@ class InstructriceExtension extends ConfigurableExtension
      *     },
      *     together?: array{
      *         api_key?: string
-     *     },
+     *     }
      * } $mergedConfig
      */
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container): void
@@ -78,12 +81,15 @@ class InstructriceExtension extends ConfigurableExtension
             Together::class => $mergedConfig['together']['api_key'] ?? null,
         ];
 
+        $defaultDsn = $mergedConfig['default']['dsn'] ?? null;
+
         $definition = $container->register(Instructrice::class);
         $definition->setFactory(InstructriceFactory::class . '::create');
         $definition->setArguments([
             '$llmFactory' => new Reference(LLMFactory::class),
             '$serializer' => new Reference('serializer'),
             '$propertyInfo' => new Reference('property_info'),
+            '$defaultLlm' => $defaultDsn,
         ]);
 
         $definition = $container->register(SymfonyStreamingClient::class);

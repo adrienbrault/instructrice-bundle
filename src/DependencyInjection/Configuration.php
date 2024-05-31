@@ -16,6 +16,11 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->arrayNode('default')
+                    ->children()
+                        ->scalarNode('dsn')->end()
+                    ->end()
+                ->end()
                 ->arrayNode('anthropic')
                     ->children()
                         ->scalarNode('api_key')->end()
